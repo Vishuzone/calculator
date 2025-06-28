@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .calculator{
+            background-color: black;
+            border-radius: 25px;
+            box-shadow: 0 5px  20px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            padding: 30px;
+        }
+        .display{
+            text-align: right;
+            margin-bottom: 40px;
+        }
+        #result{
+            width: 100%;
+            padding: 18px;
+            font-size: 28px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            background-color: white;
+            color: black;
+            text-align: right;
+        }
+        .buttons{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+        }
+        .btn{
+            background-color: gray;
+            border: 1px solid white;
+            padding: 10px;
+            font-size: 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .btn:hover{
+            background-color: white;
+        }
+        .btn:active{
+            background-color: white;
+        }
+        .btn2{
+            background-color: yellow;
+            padding: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="img" id="main">
+        <div class="calculator" id="main">
+            <div class="display">
+                <input type="text" id="result" onclick="calculateResult('.')">
+            </div>
+            <div class="buttons" id="main">
+                <button class="btn1" onclick="cleardisplay('AC')">AC</button>
+                <button class="btn1" onclick="deletlast('DEL')">DEL</button>
+                <button class="btn1" onclick="appendToDisplay('%')">%</button>
+                <button class="btn2" onclick="appendToDisplay('/')">/</button>
+
+                <button class="btn1" onclick="appendToDisplay('7')">7</button>
+                <button class="btn1" onclick="appendToDisplay('8')">8</button>
+                <button class="btn1" onclick="appendToDisplay('9')">9</button>
+                <button class="btn2" onclick="appendToDisplay('')"></button>
+
+                <button class="btn1" onclick="appendToDisplay('4')">4</button>
+                <button class="btn1" onclick="appendToDisplay('5')">5</button>
+                <button class="btn1" onclick="appendToDisplay('6')">6</button>
+                <button class="btn2" onclick="appendToDisplay('-')">-</button>
+
+                <button class="btn1" onclick="appendToDisplay('1')">1</button>
+                <button class="btn1" onclick="appendToDisplay('2')">2</button>
+                <button class="btn1" onclick="appendToDisplay('3')">3</button>
+                <button class="btn2" onclick="appendToDisplay('+')">+</button>
+
+                <button class="btn1" onclick="appendToDisplay('00')">00</button>
+                <button class="btn1" onclick="appendToDisplay('0')">0</button>
+                <button class="btn1" onclick="calculateResult('.')">.</button>
+                <button class="btn2" onclick="calculateResult('=')">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function appendToDisplay(value){
+            document.getElementById("result").value+=value;
+        }
+        function cleardisplay(){
+            document.getElementById("result").value="";
+        }
+        function calculateResult(){
+            document.getElementById("result").value=eval
+            (document.getElementById("result").value)
+        }
+        function deletlast(){
+            var result = document.getElementById("result").value;
+            document.getElementById("result").value = result.slice(0,-1)
+        }
+    </script>
+</body>
+</html>
